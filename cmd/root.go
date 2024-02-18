@@ -12,22 +12,7 @@ import (
 var logLevel string
 
 var RootCmd = &cobra.Command{
-	Use:   "cf",
-	Short: "cf is a cloud exploitation framework, designed for testing the security of cloud environments.",
-	Long: `
- ▄████   ▐████▄       
- ██▀        ▀██      ██████╗    ███████╗
- ▀▀          ▀▀     ██╔════╝    ██╔════╝
-   ▀▀▀▀▀▀▀▀▀▀       ██║         █████╗  
- ▄▄          ▄▄     ██║         ██╔══╝ 
- ██▄        ▄██     ╚██████╗    ██║   
- ▀████   ▐████▀      ╚═════╝    ╚═╝
- 
-        github.com/teamssix/cf
-
-cf 是一个云环境利用框架，本工具仅可用于合法合规用途。
-cf is a cloud exploitation framework, designed for testing the security of cloud environments.
-`,
+	Use: "cf",
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		util.Init(logLevel)
 	},
