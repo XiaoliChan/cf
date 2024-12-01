@@ -1,8 +1,9 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-sdk-go/service/ec2"
 	"strconv"
+
+	"github.com/aws/aws-sdk-go/service/ec2"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/teamssix/cf/pkg/cloud"

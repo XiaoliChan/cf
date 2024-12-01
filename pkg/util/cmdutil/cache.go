@@ -56,17 +56,22 @@ func WriteCacheFile(td cloud.TableData, provider string, serviceType string, reg
 			var ECSCacheList []pubutil.ECSCache
 			for _, v := range td.Body {
 				ECSCache := pubutil.ECSCache{
-					AccessKeyId:          AccessKeyId,
-					SN:                   v[0],
-					InstanceId:           v[1],
-					InstanceName:         v[2],
-					OSName:               v[3],
-					OSType:               v[4],
-					Status:               v[5],
-					PrivateIpAddress:     v[6],
-					PublicIpAddress:      v[7],
-					CloudAssistantStatus: v[8],
-					RegionId:             v[9],
+					AccessKeyId:      AccessKeyId,
+					SN:               v[0],
+					InstanceId:       v[1],
+					InstanceName:     v[2],
+					OSName:           v[3],
+					OSType:           v[4],
+					Status:           v[5],
+					PrivateIpAddress: v[6],
+					PublicIpAddress:  v[7],
+				}
+				if provider == "alibaba" {
+					ECSCache.CloudAssistantStatus = v[8]
+					ECSCache.RegionId = v[9]
+				} else {
+					ECSCache.CloudAssistantStatus = "N/A"
+					ECSCache.RegionId = v[8]
 				}
 				ECSCacheList = append(ECSCacheList, ECSCache)
 			}
